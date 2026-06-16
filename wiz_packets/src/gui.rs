@@ -101,7 +101,7 @@ impl PacketLoggerApp {
 
     fn load_schemas_from_wad(&mut self) {
         let wad_path = PathBuf::from(&self.wad_path);
-        let output_dir = PathBuf::from(r"c:\Users\Mirin\Desktop\WizardCTF\wiz_packets\dml_schemas");
+        let output_dir = PathBuf::from(r"c:\Users\Administrator\Desktop\wiz_packets\dml_schemas");
 
         match wad::extract_dml_xmls(&wad_path, &output_dir) {
             Ok(files) => {
@@ -192,7 +192,7 @@ impl PacketLoggerApp {
         let export: Vec<_> = self.packets.iter().map(|p| &p.msg).collect();
         if let Ok(json) = serde_json::to_string_pretty(&export) {
             let path =
-                PathBuf::from(r"c:\Users\Mirin\Desktop\WizardCTF\wiz_packets\capture_export.json");
+                PathBuf::from(r"c:\Users\Administrator\Desktop\wiz_packets\capture_export.json");
             let _ = std::fs::write(&path, &json);
         }
     }
@@ -478,13 +478,13 @@ fn find_hook_dll() -> PathBuf {
     }
 
     let workspace_release =
-        PathBuf::from(r"c:\Users\Mirin\Desktop\WizardCTF\wiz_packets\target\release\wiz_hook.dll");
+        PathBuf::from(r"c:\Users\Administrator\Desktop\wiz_packets\target\release\wiz_hook.dll");
     if workspace_release.exists() {
         return workspace_release;
     }
 
     let workspace_debug =
-        PathBuf::from(r"c:\Users\Mirin\Desktop\WizardCTF\wiz_packets\target\debug\wiz_hook.dll");
+        PathBuf::from(r"c:\Users\Administrator\Desktop\wiz_packets\target\debug\wiz_hook.dll");
     if workspace_debug.exists() {
         return workspace_debug;
     }
